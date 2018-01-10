@@ -1,8 +1,46 @@
-# Redux Todos Example
+# Skygear x Redux Todos Example
+
+This example is extracted from the original Redux Example Project [here](https://github.com/reactjs/redux/tree/master/examples/todos).
+
+This example shows how you can integrate [Skygear](https://skygear.io) JS SDK into the redux framework.
 
 This project template was built with [Create React App](https://github.com/facebookincubator/create-react-app), which provides a simple way to start React projects with no build configuration needed.
 
 Projects built with Create-React-App include support for ES6 syntax, as well as several unofficial / not-yet-final forms of Javascript syntax such as Class Properties and JSX.  See the list of [language features and polyfills supported by Create-React-App](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#supported-language-features-and-polyfills) for more information.
+
+## Skygear Config
+In this app, Skygear related APIs are wrapped inside `src/api/skygear.js`.
+
+Example: You can import `skygearAPI` from `src/api/skygear.js`, and calling Skygear APIs with your code.
+(example in [`src/index.js`](src/index.js))
+```
+import skygearAPI from './api/skygear'
+
+skygearAPI.config(skygearContainer => {
+  skygearAPI.signupAnonymously(user => { // Signup a skygear user 
+    // Now we have a user to fetch the itmes from cloudDB
+    store.dispatch(getAllTodos())
+  })
+});
+```
+
+### Updating Skygear Endpoint and API Key
+
+You should place you Skygear API Endpoint and API Key in [`src/api/skygear.js`](src/api/skygear.js) to connect this example to your Skygear app endpoint.
+
+```
+config: (cb) => {
+    skygear.config({
+      'endPoint': <API ENDPOINT>,
+      'apiKey': <API KEY>,
+    }).then(() => {
+      console.log('skygear container is now ready for making API calls.');
+      cb(skygear);
+    }, (error) => {
+      console.error(error);
+    });
+  }
+```
 
 ## Available Scripts
 
