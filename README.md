@@ -1,5 +1,7 @@
 # Skygear x Redux Todos Example
 
+### [LIVE DEMO](https://skygear-demo.github.io/redux-todo-example/)
+
 This example is extracted from the original Redux Example Project [here](https://github.com/reactjs/redux/tree/master/examples/todos).
 
 This example shows how you can integrate [Skygear](https://skygear.io) JS SDK into the redux framework.
