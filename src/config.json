@@ -1,0 +1,6 @@
+{
+  "skygear": {
+    "endPoint": "<API ENDPOINT>",
+    "apiKey": "<API KEY>"
+  }
+}
